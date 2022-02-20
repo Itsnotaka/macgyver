@@ -1,9 +1,9 @@
 appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2018 Yoshihide Shiono
+productName: Macgyver
+copyright: 
 directories:
   output: dist
-  buildResources: resources
+  buildResources: buildResources
 files:
   - from: .
     filter:

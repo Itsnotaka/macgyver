@@ -1,5 +1,6 @@
 import { app } from 'electron';
 import serve from 'electron-serve';
+import { join } from 'path';
 import { createWindow } from './helpers';
 
 const isProd: boolean = process.env.NODE_ENV === 'production';
@@ -16,6 +17,7 @@ if (isProd) {
   const mainWindow = createWindow('main', {
     width: 1000,
     height: 600,
+    
   });
 
   if (isProd) {

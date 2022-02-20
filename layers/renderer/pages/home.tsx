@@ -1,30 +1,43 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
 
-function Home() {
-  return (
-    <React.Fragment>
-      <Head>
-        <title>Home - Nextron (with-typescript-tailwindcss)</title>
-      </Head>
-      <div className='grid grid-col-1 text-2xl w-full text-center'>
-        <img className='ml-auto mr-auto' src='/images/logo.png' />
-        <span>⚡ Electron ⚡</span>
-        <span>+</span>
-        <span>Next.js</span>
-        <span>+</span>
-        <span>tailwindcss</span>
-        <span>=</span>
-        <span>💕 </span>
-      </div>
-      <div className='mt-1 w-full flex-wrap flex justify-center'>
-        <Link href='/next'>
-          <a className='btn-blue'>Go to next page</a>
-        </Link>
-      </div>
-    </React.Fragment>
-  );
+export default function Home() {
+	const version = "0.01";
+	return (
+		<div>
+			<div className="bg-gray-800 w-screen h-screen flex flex-col text-gray-100 p-4">
+				<h1 className="text-4xl font-bold text-center">
+					Yerba: An Electron Monorepo Demo
+				</h1>
+				<div>
+					<div className="text-2xl font-semibold">Using...</div>
+					<ul>
+						<li>Electron</li>
+						<li>Vite</li>
+						<li>TurboRepo</li>
+						<li>Next.js</li>
+						<li>Typescript</li>
+						<li>Tailwind Monorepo</li>
+					</ul>
+				</div>
+				<div className="p-2" />
+				<div>...yeah this kinda sucked to figure out</div>
+				<div className="p-4" />
+				<div className="text-2xl italic">
+					Wanna see some typesafe data?
+				</div>
+				<div>
+					<span className="font-bold">{"Macgyver version: "}</span>
+					{version}
+				</div>
+				<div>
+					<span className="font-bold">
+						{"Hashed Yerba version using node's builtin crypto: "}
+					</span>
+				</div>
+				<div className="absolute bottom-0 right-0 p-4 w-full flex justify-center">
+					Quickly hacked together by Theo
+				</div>
+			</div>
+		</div>
+	);
 }
-
-export default Home;
