@@ -1,31 +1,42 @@
 {
-  "private": true,
-  "name": "macgyver",
-  "description": "My application description",
-  "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
-  "main": "app/background.js",
-  "scripts": {
-    "dev": "nextron",
-    "build": "nextron build",
-    "postinstall": "electron-builder install-app-deps"
-  },
-  "dependencies": {
-    "electron-serve": "^1.1.0",
-    "electron-store": "^8.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.0",
-    "autoprefixer": "^10.3.5",
-    "electron": "^16.0.7",
-    "electron-builder": "^22.14.5",
-    "next": "^12.1.0",
-    "nextron": "^7.2.0",
-    "postcss": "^8.3.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.15",
-    "typescript": "^4.5.5"
-  }
+	"private": true,
+	"name": "macgyver",
+	"description": "The Electron Wrapper that can actually solve my problem",
+	"version": "1.0.0",
+	"author": "Min Chun Fu",
+	"main": "app/background.js",
+	"scripts": {
+		"dev": "nextron",
+		"build": "nextron build",
+		"postinstall": "electron-builder install-app-deps",
+		"lint": "eslint . --fix",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\""
+	},
+	"dependencies": {
+		"electron-serve": "^1.1.0",
+		"electron-store": "^8.0.1"
+	},
+	"devDependencies": {
+		"@next/eslint-plugin-next": "^12.1.0",
+		"@types/node": "^14.14.31",
+		"@types/react": "^17.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"autoprefixer": "^10.3.5",
+		"electron": "^16.0.7",
+		"electron-builder": "^22.14.5",
+		"eslint": "^8.9.0",
+		"eslint-config-next": "^12.1.0",
+		"eslint-config-xo": "^0.40.0",
+		"eslint-config-xo-react": "^0.26.0",
+		"eslint-config-xo-typescript": "^0.50.0",
+		"next": "^12.1.0",
+		"nextron": "^7.2.0",
+		"postcss": "^8.3.7",
+		"prettier": "^2.5.1",
+		"prettier-plugin-tailwindcss": "^0.1.7",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"tailwindcss": "^2.2.15",
+		"typescript": "^4.5.5"
+	}
 }

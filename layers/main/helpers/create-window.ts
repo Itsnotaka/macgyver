@@ -2,15 +2,15 @@ import {
 	screen,
 	BrowserWindow,
 	BrowserWindowConstructorOptions,
-} from "electron";
-import Store from "electron-store";
-import { join } from "path";
+} from 'electron';
+import Store from 'electron-store';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (
 	windowName: string,
-	options: BrowserWindowConstructorOptions
+	options: BrowserWindowConstructorOptions,
 ): BrowserWindow => {
-	const key = "window-state";
+	const key = 'window-state';
 	const name = `window-state-${windowName}`;
 	const store = new Store({ name });
 	const defaultSize = {
@@ -18,7 +18,8 @@ export default (
 		height: options.height,
 	};
 	let state = {};
-	let win;
+	// eslint-disable-next-line prefer-const
+	let win: BrowserWindow;
 
 	const restore = () => store.get(key, defaultSize);
 
@@ -33,32 +34,35 @@ export default (
 		};
 	};
 
-	const windowWithinBounds = (windowState, bounds) => {
-		return (
-			windowState.x >= bounds.x &&
-			windowState.y >= bounds.y &&
-			windowState.x + windowState.width <= bounds.x + bounds.width &&
-			windowState.y + windowState.height <= bounds.y + bounds.height
-		);
-	};
+	const windowWithinBounds = (
+		windowState: { x: number; y: number; width: any; height: any },
+		// eslint-disable-next-line no-undef
+		bounds: Electron.Rectangle,
+	) =>
+		windowState.x >= bounds.x &&
+		windowState.y >= bounds.y &&
+		windowState.x + windowState.width <= bounds.x + bounds.width &&
+		windowState.y + windowState.height <= bounds.y + bounds.height;
 
 	const resetToDefaults = () => {
-		const bounds = screen.getPrimaryDisplay().bounds;
-		return Object.assign({}, defaultSize, {
+		const { bounds } = screen.getPrimaryDisplay();
+		return {
+			...defaultSize,
 			x: (bounds.width - defaultSize.width) / 2,
 			y: (bounds.height - defaultSize.height) / 2,
-		});
+		};
 	};
 
-	const ensureVisibleOnSomeDisplay = (windowState) => {
-		const visible = screen.getAllDisplays().some((display) => {
-			return windowWithinBounds(windowState, display.bounds);
-		});
+	const ensureVisibleOnSomeDisplay = (windowState: any) => {
+		const visible = screen
+			.getAllDisplays()
+			.some(display => windowWithinBounds(windowState, display.bounds));
 		if (!visible) {
 			// Window is partially or fully not visible now.
 			// Reset it to safe defaults.
 			return resetToDefaults();
 		}
+
 		return windowState;
 	};
 
@@ -66,6 +70,7 @@ export default (
 		if (!win.isMinimized() && !win.isMaximized()) {
 			Object.assign(state, getCurrentPosition());
 		}
+
 		store.set(key, state);
 	};
 
@@ -77,12 +82,12 @@ export default (
 
 		webPreferences: {
 			contextIsolation: true,
-			...options.webPreferences,	
+			...options.webPreferences,
 		},
 	};
 	win = new BrowserWindow(browserOptions);
 
-	win.on("close", saveState);
+	win.on('close', saveState);
 
 	return win;
 };
