@@ -14,8 +14,7 @@
 	},
 	"dependencies": {
 		"electron-serve": "^1.1.0",
-		"electron-store": "^8.0.1",
-		"got": "^12.0.4"
+		"electron-store": "^8.0.1"
 	},
 	"devDependencies": {
 		"@next/eslint-plugin-next": "^12.1.6",
