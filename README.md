@@ -1,6 +1,6 @@
 # Why
 
-⚡ Next.js + Electron = 💖
+⚡ Next.js + Electron + Tailwindcss = 💖
 
 This repo is created because I couldn't find a good example that has everything I need. Macgyver comes with the newest Nextron + Tailwind support out of the box (Headless for easy customization)
 
