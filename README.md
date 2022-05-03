@@ -11,10 +11,12 @@ Visit <https://github.com/saltyshiomix/nextron> to understand how to customize n
 
 ## Usage
 
-`git clone https://github.com/Itsnotaka/macgyver.git`
-$ cd macgyver
-$ yarn
-$ yarn dev
+```ts
+git clone https://github.com/Itsnotaka/macgyver.git
+cd macgyver
+yarn
+yarn dev
+```
 
 and start developing!
 
